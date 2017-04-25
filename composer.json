@@ -1,5 +1,5 @@
 {
-    "name": "misterpaladin/dropbox-v2-tools",
+    "name": "misterpaladin/dropbox-v2",
 	"license": "MIT",
 	"description" : "Library for Dropbox v2 API",
     "authors": [
