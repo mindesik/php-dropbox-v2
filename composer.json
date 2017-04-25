@@ -1,0 +1,19 @@
+{
+    "name": "misterpaladin/dropbox-v2-tools",
+	"license": "MIT",
+	"description" : "Library for Dropbox v2 API",
+    "authors": [
+        {
+            "name": "Eugene Min",
+            "email": "e.min@milax.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MisterPaladin\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "5.3.1"
+    }
+}
