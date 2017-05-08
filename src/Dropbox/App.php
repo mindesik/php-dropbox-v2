@@ -11,18 +11,6 @@ class App {
     public static $files;
     public static $users;
 
-    private static $_instance = null;
-
-    /**
-     * Get app instance
-     *
-     * @return App
-     */
-    public static function getInstance()
-    {
-        return self::$_instance;
-    }
-
     /**
      * Add endpoints instances
      *
@@ -49,6 +37,4 @@ class App {
             return null;
         }
     }
-
-    protected function __clone() {}
 }
