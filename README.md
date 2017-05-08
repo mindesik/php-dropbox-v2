@@ -22,8 +22,6 @@
 |:-----------|:---------|
 | public | <strong>__construct(</strong><em>string</em> <strong>$accessToken</strong>)</strong> : <em>void</em><br /><em>Add endpoints instances</em> |
 | public | <strong>__get(</strong><em>string</em> <strong>$key</strong>)</strong> : <em>mixed</em><br /><em>Access to static properties</em> |
-| public static | <strong>getInstance()</strong> : <em>[\MisterPaladin\Dropbox\App](#class-misterpaladindropboxapp)</em><br /><em>Get app instance</em> |
-| protected | <strong>__clone()</strong> : <em>void</em> |
 
 <hr />
 
