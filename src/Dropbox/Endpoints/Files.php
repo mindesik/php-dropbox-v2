@@ -11,6 +11,26 @@ use MisterPaladin\Dropbox\Types\TemporaryLink;
 class Files extends EndpointGroup {
 
     /**
+     * Starts returning the contents of a folder. If the result's ListFolderResult.has_more field is true, call list_folder/continue with the returned ListFolderResult.cursor to retrieve more entries.
+     * If you're using ListFolderArg.recursive set to true to keep a local cache of the contents of a Dropbox account, iterate through each entry in order and process them as follows to keep your local state in sync:
+     * For each FileMetadata, store the new entry at the given path in your local state. If the required parent folders don't exist yet, create them. If there's already something else at the given path, replace it and remove all its children.
+     * For each FolderMetadata, store the new entry at the given path in your local state. If the required parent folders don't exist yet, create them. If there's already something else at the given path, replace it but leave the children as they are. Check the new entry's FolderSharingInfo.read_only and set all its children's read-only statuses to match.
+     * For each DeletedMetadata, if your local state has something at the given path, remove it and all its children. If there's nothing at the given path, ignore this entry.
+     * Note: auth.RateLimitError may be returned if multiple list_folder or list_folder/continue calls with same parameters are made simultaneously by same API app for same user. If your app implements retry logic, please hold off the retry until the previous request finishes.
+     *
+     * @param array $parameters
+     * @return object
+     */
+    public function listFolder($parameters = [])
+    {
+        $data = $this->rcpRequest('POST', 'files/list_folder', [
+            'json' => $parameters,
+        ]);
+
+        return $data;
+    }
+
+    /**
      * Copy a file or folder to a different location in the user's Dropbox.
      * If the source path is a folder all its contents will be copied.
      *
